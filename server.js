@@ -14,9 +14,9 @@ app.engine("handlebars", exphbs({ devaultLayout: "main"}));
 
 app.set("view engine", "handlebars");
 
-require("./controllers/apiRoutes.js")(app);
+require("./controllers/apiRoutes")(app);
 
-require("./controllers/htmlRoutes.js")(app);
+require("./controllers/htmlRoutes")(app);
 
 app.listen(PORT, function(){
     console.log(`Server listening on: http://localhost: ${PORT}`);
