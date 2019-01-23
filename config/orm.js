@@ -31,7 +31,7 @@ function ORM(table){
         const sql = `UPDATE ?? SET devoured = ?`;
 
         return new Promise(function (resolve, reject){
-            connection.query (sql, [table, id], function (err, data){
+            connection.query (sql, [table, devoured], function (err, data){
                 if (err) reject (err);
                 resolve(data);
             });
