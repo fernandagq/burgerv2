@@ -4,10 +4,9 @@ function ORM(table){
     this.table = table;
 
     this.all = function () {
-        const sql = `SELECT * FROM ??`;
 
         return new Promise (function (resolve, reject){
-            connection.query(sql, table, function (err, data){
+            connection.query(`SELECT * FROM ??`, table, function (err, data){
                 if (err) reject (err);
                 resolve(data);
             });
@@ -15,10 +14,9 @@ function ORM(table){
     },
 
     this.create = function (name, devoured) {
-        const sql = `INSERT INTO ?? (name, devoured) VALUES (?, ?)`;
 
         return new Promise (function (resolve, reject){
-            connection.query(sql, [table, name, devoured],
+            connection.query(`INSERT INTO ?? (name, devoured) VALUES (?, ?)`, [table, name, devoured],
             function (err, data) {
                 if (err) reject (err);
                 resolve(data);
@@ -28,10 +26,9 @@ function ORM(table){
     },
 
     this.update = function (devoured, id) {
-        const sql = `UPDATE ?? SET devoured = ?`;
 
         return new Promise(function (resolve, reject){
-            connection.query (sql, [table, devoured], function (err, data){
+            connection.query (`UPDATE ?? SET devoured = ?`, [table, devoured], function (err, data){
                 if (err) reject (err);
                 resolve(data);
             });
@@ -39,10 +36,9 @@ function ORM(table){
     }
 
     this.delete= function(id){
-        const sql = `DELETE FROM ?? WHERE id = ?`;
-
+       
         return new Promise(function(resolve, reject){
-            connection.query(sql, [table, id], function (err, data){
+            connection.query(`DELETE FROM ?? WHERE id = ?`, [table, id], function (err, data){
                 if (err) reject(err);
                 resolve(data);
             })
