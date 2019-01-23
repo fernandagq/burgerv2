@@ -1,4 +1,4 @@
-console.log("hello")
+
 $(function(){
     $(".change-devoured").on("click", function (event){
         var id = $(this).data("id");
@@ -13,7 +13,6 @@ $(function(){
             data: newDevouredState
         }).then(
             function() {
-                console.log("changed devoured to", newDevoured);
 
                 location.reload();
             }
@@ -33,7 +32,6 @@ $(function(){
             data: newBurger
         }).then (
             function() {
-                console.log ("created new burger");
 
                 location.reload();
             }
@@ -47,7 +45,6 @@ $(function(){
             type:"DELETE"
         }).then (
             function () {
-                console.log("delete burger", id);
 
                 location.reload();
             }
